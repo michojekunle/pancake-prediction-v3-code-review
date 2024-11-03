@@ -2,17 +2,20 @@
 pragma solidity ^0.8.0;
 pragma abicoder v2;
 
-import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {Pausable} from "@openzeppelin/contracts/security/Pausable.sol";
-import {ReentrancyGuard} from "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+import {Ownable} from "openzeppelin-contracts/contracts/access/Ownable.sol";
+// Pausable and RenentrancyGuard contracts of openzeppellin now moved to utils directory
+import {Pausable} from "openzeppelin-contracts/contracts/utils/Pausable.sol";
+import {ReentrancyGuard} from "openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol";
+// 
+import {IERC20} from "openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
+import {SafeERC20} from "openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol";
+// chainlink contract now modifed to /shared directory 
+import {AggregatorV3Interface} from "@chainlink/contracts/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
 /**
  * @title PancakePredictionV3
  */
-contract PancakePredictionV3 is Ownable, Pausable, ReentrancyGuard {
+contract PancakePredictionV3 is Ownable(msg.sender), Pausable, ReentrancyGuard {
     using SafeERC20 for IERC20;
 
     IERC20 public immutable token; // Prediction token
