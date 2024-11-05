@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 pragma abicoder v2;
 
 import {Ownable} from "openzeppelin-contracts/contracts/access/Ownable.sol";
-// Pausable and RenentrancyGuard contracts of openzeppellin now moved to utils directory
+// Pausable and ReenntrancyGuard contracts of openzeppellin now moved to utils directory
 import {Pausable} from "openzeppelin-contracts/contracts/utils/Pausable.sol";
 import {ReentrancyGuard} from "openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol";
 // 
